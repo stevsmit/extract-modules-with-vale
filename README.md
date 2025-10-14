@@ -55,8 +55,27 @@ chmod +x multi_dir_extract_openshift_modules.sh
 ./multi_dir_extract_openshift_modules.sh /home/path/to/openshift-docs/<directory_name>/<assembly_name>.adoc
 ```
 ---
+**Output:**
+```bash
+Output directory: etcd_extracted_modules
+Found 1 assembly(s).
+All assemblies processed successfully.
+```
 
-6. Optional: If you used the `multi_dir_extract_openshift_modules.sh` script, run Vale on the assembly and the modules returned. **Note** Running `vale` without setting an alias only works in the `extract-modules-with-vale` directory. To set an alias, see "Setting an alias for Vale."
+6. Concatenate the file to return the list of modules in your terminal. Or just open it.
+```bash
+cat <folder_name>/<file_name>.txt
+ ```
+**Output:**
+```bash
+• <assembly_name>.adoc
+  - '/home/path/to/openshift-docs/modules/<module_name>.adoc'
+  - '/home/home/path/to/openshift-docs/modules/<module_name>.adoc'
+  - '/home/home/path/to/penshift-docs/modules/<module_name>.adoc'
+  - '/home/home/path/to/openshift-docs/modules/<module_name>.adoc'
+```
+
+6. Run Vale on the assembly and the modules returned. **Note** Running `vale` without setting an alias only works in the `extract-modules-with-vale` directory. To set an alias, see "Setting an alias for Vale."
 ```bash
 # Run Vale on an assembly file:
 vale /home/path/to/openshift-docs/<directory_name><assembly_name>.adoc
@@ -65,7 +84,7 @@ vale /home/path/to/openshift-docs/<directory_name><assembly_name>.adoc
 
 vale /home/path/to/openshift-docs/modules/<module_name>.adoc
 ```
-Output:
+**Output:**
 ```bash
  about-virtual-routing-and-forwarding.adoc
  1:1  warning  Assign [role="_abstract"]       AsciiDocDITA.ShortDescription 
@@ -118,7 +137,7 @@ $ source ~/.zshrc
 ```bash
 $ ditavaleocp ./path/to/openshift/repository/modules/about-virtual-routing-and-forwarding.adoc 
 ```
-Output:
+**Output:**
 ```bash
  about-virtual-routing-and-forwarding.adoc
  1:1  warning  Assign [role="_abstract"]       AsciiDocDITA.ShortDescription 
