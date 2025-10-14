@@ -1,18 +1,13 @@
 # Extract Modules from assemblies
 
-Two scripts are provided in this repository:
+The `multi_dir_extract_openshift_modules.sh` script extracts modules from assemblies, and saves a _MODULES.txt report in the folder. After the _MODULES.txt report has been created in the `extract-modules-with-vale` folder, you can run Vale manually on the assembly and the list of modules returned to generate the list of errors that must be resolved for migration.
 
-1. The `extract-modules-with-vale.sh` script extracts AsciiDoc modules from assemblies and runs [Vale](https://vale.sh/) to lint them using the **AsciiDocDITA** style package. It prints results to the terminal and saves a per-assembly `_MODULES.txt` report in the extract-modules-with-vale folder. Use this option if you want to run Vale on all modules at one time and save the results in a .txt file.
-2. The `multi_dir_extract_openshift_modules.sh` script ONLY extracts modules from assemblies, and saves a modules-per-assembly.txt report in the folder. Use this option if you do want to run Vale manually on individual modules or assemblies.
 ---
-
-Either option works, but note that if you use the `multi_dir_extract_openshift_modules.sh` script, you must run Vale manually on the assembly and the list of modules returned to generate the list of errors. I think this option is cleaner. 
 
 ## Contents
 
-- `extract_modules_with_vale.sh` — extracts and lints all assemblies and modules within that assembly. Returns the *AsciiDocDITA* results in both the terminal and in a .txt file.
-- `multi_dir_extract_openshift_modules.sh` - extracts only modules from assemblies and saves them in a modules-per-assembly.txt report. Must use Vale separately.
-- `.vale.ini` — Vale configuration (included in this repo)
+- `multi_dir_extract_openshift_modules.sh` - extracts modules from assemblies and saves them in a _MODULES.txt report.
+- `.vale.ini` — Vale configuration with the `asciidoc-dita-vale` tool configuration.
 ---
 
 ## Prerequisites
@@ -46,19 +41,13 @@ cd extract-modules-with-vale
 vale sync
 ```
 
-4. Make the scripts executable:
+4. Make the script executable:
 ```bash
-chmod +x extract_modules_with_vale.sh multi_dir_extract_openshift_modules.sh
+chmod +x multi_dir_extract_openshift_modules.sh
 ```
 5. Run either script. The script accepts either a directory or a single assembly file.
 
 ```bash
-# Scan a whole docs directory:
-./extract_modules_with_vale.sh /home/path/to/openshift-docs/<directory_name>
-
-# Process a single assembly file:
-./extract_modules_with_vale.sh /home/path/to/openshift-docs/<directory_name>/<assembly_name>.adoc
-
 # Only list modules within an directory:
 ./multi_dir_extract_openshift_modules.sh /home/path/to/openshift-docs/<directory_name>
 
