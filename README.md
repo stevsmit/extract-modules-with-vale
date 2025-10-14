@@ -28,7 +28,7 @@ vale --version
 ```
 ---
 
-## Quick Start
+## Using the scripts
 
 1. Clone the repository:
 
@@ -82,11 +82,11 @@ vale /home/path/to/openshift-docs/modules/<module_name>.adoc
 ## Setting an alias for Vale
 If you do not set an alias for Vale, you must run the `$ vale` command from within the `extract-modules-with-vale` folder. The following procedure shows you how to set up an alias for Vale so that you can run it from any location.
 
-.Prerequisites
+### Prerequisites
 
 * You have cloned this repository and synced Vale.
 
-.Procedure
+### Procedure
 
 1. Change into the directory:
 
