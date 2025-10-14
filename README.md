@@ -33,7 +33,7 @@ vale --version
 1. Clone the repository:
 
 ```bash
-git clone 
+git clone git@github.com:stevsmit/extract-modules-with-vale.git
 ```
 2. Change into the directory:
 
