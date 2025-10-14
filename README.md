@@ -123,7 +123,7 @@ $ source ~/.bashrc
 $ source ~/.zshrc
 ```
 
-.Verification
+**Verification**
 
 1. Verify that the alias works by running it against a module or an assembly in the OpenShift documentation repository. For example:
 ```bash
