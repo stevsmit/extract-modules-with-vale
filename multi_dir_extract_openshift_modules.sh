@@ -2,7 +2,8 @@
 # multi_dir_extract_openshift_modules.sh
 # Finds all assemblies in a specified directory (recursively) OR processes
 # a single assembly file, and saves a separate, formatted _MODULES.txt file
-# for each assembly inside a new directory. Outputs full absolute paths for modules.
+# for each assembly inside a new directory. Outputs full absolute paths for both
+# assemblies and their included modules.
 
 # --- Temporary files ---
 TMP_RAW_MODULES="tmp_raw_modules.tmp"
@@ -66,13 +67,18 @@ while IFS= read -r TARGET_FILEPATH; do
         continue
     fi
 
-    echo "• $FILE_BASENAME" >> "$OUTPUT_FILE"
+    # --- New: Print full assembly path ---
+    echo "• Assembly:" >> "$OUTPUT_FILE"
+    echo "  - '$(realpath "$TARGET_FILEPATH")'" >> "$OUTPUT_FILE"
+    echo "" >> "$OUTPUT_FILE"
 
-    # Extract module filenames and construct full absolute paths
+    # --- Then print the module paths ---
+    echo "• Modules:" >> "$OUTPUT_FILE"
+
     sed -E 's/.*include::modules\/(.*?)\[.*$/\1/' "$TMP_RAW_MODULES" | \
     sed -E 's/.*include::modules\/(.*)/\1/' | \
     sort | uniq | sed '/^$/d' | while read -r module_name; do
-        # Use relative to modules directory in the same repo
+        # Resolve full path to module relative to assembly
         full_path="$(realpath "$(dirname "$TARGET_FILEPATH")/../modules/$module_name" 2>/dev/null)"
         if [[ -f "$full_path" ]]; then
             echo "  - '$full_path'" >> "$OUTPUT_FILE"
