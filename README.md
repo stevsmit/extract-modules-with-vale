@@ -67,7 +67,7 @@ chmod +x extract_modules_with_vale.sh multi_dir_extract_openshift_modules.sh
 ```
 ---
 
-6. Optional: If you used the `multi_dir_extract_openshift_modules.sh` script, run Vale on the assembly and the modules returned:
+6. Optional: If you used the `multi_dir_extract_openshift_modules.sh` script, run Vale on the assembly and the modules returned. **Note** Running `vale` without setting an alias only works in the `extract-modules-with-vale` directory. To set an alias, see "Setting an alias for Vale."
 ```bash
 # Run Vale on an assembly file:
 vale /home/path/to/openshift-docs/<directory_name><assembly_name>.adoc
@@ -76,7 +76,17 @@ vale /home/path/to/openshift-docs/<directory_name><assembly_name>.adoc
 
 vale /home/path/to/openshift-docs/modules/<module_name>.adoc
 ```
+Output:
+```bash
+ about-virtual-routing-and-forwarding.adoc
+ 1:1  warning  Assign [role="_abstract"]       AsciiDocDITA.ShortDescription 
+               to a paragraph to use it as                                   
+               <shortdesc> in DITA.                                          
+ 4:1  warning  Author lines are not supported  AsciiDocDITA.AuthorLine       
+               for topics.                                                   
 
+✖ 0 errors, 2 warnings and 0 suggestions in 1 file.
+```
 ---
 
 ## Setting an alias for Vale
