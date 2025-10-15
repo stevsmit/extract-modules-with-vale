@@ -14,7 +14,8 @@ The `multi_dir_extract_openshift_modules.sh` script extracts modules from assemb
 
 - **Bash** (Linux/macOS; available by default)
 - **Python 3** (if you use any helper tooling — not required for the script itself)
-- **Vale** (prose linter)
+- [**Vale**](https://vale.sh/docs/install) 
+- [**Asciidoctor**](https://docs.asciidoctor.org/asciidoctor/latest/install/)
 
 Check Vale:
 
