@@ -17,10 +17,16 @@ The `multi_dir_extract_openshift_modules.sh` script extracts modules from assemb
 - [**Vale**](https://vale.sh/docs/install) 
 - [**Asciidoctor**](https://docs.asciidoctor.org/asciidoctor/latest/install/). For RHEL/Fedora, see [DNF](https://docs.asciidoctor.org/asciidoctor/latest/install/linux-packaging/#dnf)
 
-Check Vale:
+Check Vale version:
 
 ```bash
 vale --version
+```
+
+Check Asciidoctor version:
+
+```bash
+asciidoctor --version
 ```
 ---
 
