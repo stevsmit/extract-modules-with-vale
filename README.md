@@ -32,7 +32,7 @@ asciidoctor --version
 
 ## Using the scripts
 
-1. Clone the repository. Note that I suggest doing this in the home directory (`~ $`)
+1. Clone the repository. Note that I suggest doing this in the home directory (`~ $`). Do not clone this repository in your openshift-docs repository. 
 
 ```bash
 git clone git@github.com:stevsmit/extract-modules-with-vale.git
