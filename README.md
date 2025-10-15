@@ -32,7 +32,7 @@ asciidoctor --version
 
 ## Using the scripts
 
-1. Clone the repository:
+1. Clone the repository. Note that I suggest doing this in the home directory (`~ $`)
 
 ```bash
 git clone git@github.com:stevsmit/extract-modules-with-vale.git
