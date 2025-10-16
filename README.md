@@ -52,26 +52,33 @@ vale sync
 ```bash
 chmod +x multi_dir_extract_openshift_modules.sh
 ```
-5. Run either script. The script accepts either a directory or a single assembly file.
+5. You can run the script against either a directory, sub-directory, or a single assembly file. Running the script saves a list of all assemblies and modules, and exports them into a _MODULES.txt file.
+- A directory (../openshift-docs/installing). This option creates a list of all assemblies AND their modules across all subdirectories if there are sub-directories. **Note** This option creates a large list that might be difficult to track.
+- A sub-directory (../openshift-docs/networking/hardware_networks). This option creates a list all assemblies AND their modules from that specific sub-directory.
+- An assembly (../openshift-docs/etcd/etcd-encrypt.adoc). This option creates a list of only the specified assembly AND their modules.
 
 ```bash
-# Only list modules within an directory:
+# Creates a list of assemblies and modules within an directory:
 ./multi_dir_extract_openshift_modules.sh /home/path/to/openshift-docs/<directory_name>
 
-# Only list modules with an assembly:
+# Creates a list of assemblies and modules within a sub-directory:
+./multi_dir_extract_openshift_modules.sh /home/path/to/openshift-docs/<directory_name>/<sub_directory_name>
+
+# Creates a list of assemblies and modules for that assembly.
 ./multi_dir_extract_openshift_modules.sh /home/path/to/openshift-docs/<directory_name>/<assembly_name>.adoc
 ```
 ---
-**Output:**
+**Example output:**
 ```bash
 Output directory: etcd_extracted_modules
 Found 1 assembly(s).
-All assemblies processed successfully.
+Created: /../../extract-modules-with-vale/etcd_extracted_modules/etcd-encrypt.adoc_MODULES.txt <1>
 ```
+ 1. This file path is used in the following step.
 
-6. Concatenate the file to return the list of modules in your terminal. Or just open it.
+6. Return the list of assemblies and modules by using the `cat` command:
 ```bash
-cat <folder_name>/<file_name>.txt
+cat /../../extract-modules-with-vale/etcd_extracted_modules/etcd-encrypt.adoc_MODULES.txt
  ```
 **Output:**
 ```bash
@@ -82,7 +89,7 @@ cat <folder_name>/<file_name>.txt
   - '/home/home/path/to/openshift-docs/modules/<module_name>.adoc'
 ```
 
-6. Run Vale on the assembly and the modules returned. **Note** Running `vale` without setting an alias only works in the `extract-modules-with-vale` directory. To set an alias, see "Setting an alias for Vale."
+7. Run `vale` on the assembly and the modules returned. **IMPORTANT** Running `vale` without setting an alias only works in the `extract-modules-with-vale` directory. Running `vale` outside of this directory could return incorrect results. It is recommended to set an alias that specifically uses this `vale.ini` file, and not another one that could be on your system. To set an alias, see "Setting an alias for Vale."
 ```bash
 # Run Vale on an assembly file:
 vale /home/path/to/openshift-docs/<directory_name><assembly_name>.adoc
