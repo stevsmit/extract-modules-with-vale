@@ -102,7 +102,6 @@ cat /../../extract-modules-with-vale/etcd_extracted_modules/etcd-encrypt.adoc_MO
 vale /home/path/to/openshift-docs/<directory_name><assembly_name>.adoc
 
 # Run Vale on a module:
-
 vale /home/path/to/openshift-docs/modules/<module_name>.adoc
 ```
 **Output:**
