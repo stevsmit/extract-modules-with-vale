@@ -53,9 +53,9 @@ vale sync
 chmod +x multi_dir_extract_openshift_modules.sh
 ```
 5. You can run the script against either a directory, sub-directory, or a single assembly file. Running the script saves a list of all assemblies and modules, and exports them into a _MODULES.txt file.
-- A directory (../openshift-docs/installing). This option creates a list of all assemblies AND their modules across all subdirectories if there are sub-directories. **Note** This option creates a large list that might be difficult to track.
-- A sub-directory (../openshift-docs/networking/hardware_networks). This option creates a list all assemblies AND their modules from that specific sub-directory.
-- An assembly (../openshift-docs/etcd/etcd-encrypt.adoc). This option creates a list of only the specified assembly AND their modules.
+- **A directory (../openshift-docs/installing)**. This option creates a list of all assemblies AND their modules across all subdirectories if there are sub-directories. **Note** This option creates a large list that might be difficult to track.
+- **A sub-directory (../openshift-docs/networking/hardware_networks)**. This option creates a list all assemblies AND their modules from that specific sub-directory.
+- **An assembly (../openshift-docs/etcd/etcd-encrypt.adoc)**. This option creates a list of only the specified assembly AND their modules.
 
 ```bash
 # Creates a list of assemblies and modules within an directory:
