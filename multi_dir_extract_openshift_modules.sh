@@ -64,21 +64,21 @@ while IFS= read -r TARGET_FILEPATH; do
     if [[ ! -s "$TMP_RAW_MODULES" ]]; then
         echo "• $FILE_BASENAME (No modules found)" >> "$OUTPUT_FILE"
         rm -f "$TMP_RAW_MODULES" &>/dev/null
+        echo "Created: $(realpath "$OUTPUT_FILE")"
         continue
     fi
 
-    # --- New: Print full assembly path ---
+    # --- Print full assembly path ---
     echo "• Assembly:" >> "$OUTPUT_FILE"
     echo "  - '$(realpath "$TARGET_FILEPATH")'" >> "$OUTPUT_FILE"
     echo "" >> "$OUTPUT_FILE"
 
-    # --- Then print the module paths ---
+    # --- Then print module paths ---
     echo "• Modules:" >> "$OUTPUT_FILE"
 
     sed -E 's/.*include::modules\/(.*?)\[.*$/\1/' "$TMP_RAW_MODULES" | \
     sed -E 's/.*include::modules\/(.*)/\1/' | \
     sort | uniq | sed '/^$/d' | while read -r module_name; do
-        # Resolve full path to module relative to assembly
         full_path="$(realpath "$(dirname "$TARGET_FILEPATH")/../modules/$module_name" 2>/dev/null)"
         if [[ -f "$full_path" ]]; then
             echo "  - '$full_path'" >> "$OUTPUT_FILE"
@@ -89,6 +89,9 @@ while IFS= read -r TARGET_FILEPATH; do
 
     echo "" >> "$OUTPUT_FILE"
     rm -f "$TMP_RAW_MODULES" &>/dev/null
+
+    # ✅ NEW: Print created file path
+    echo "Created: $(realpath "$OUTPUT_FILE")"
 done < "$TMP_ASSEMBLY_PATHS"
 
 echo "All assemblies processed successfully."
