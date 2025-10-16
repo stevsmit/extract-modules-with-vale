@@ -76,7 +76,7 @@ while IFS= read -r TARGET_FILEPATH; do
     # --- Then print module paths ---
     echo "• Modules:" >> "$OUTPUT_FILE"
 
-    sed -E 's/.*include::modules\/(.*?)\[.*$/\1/' "$TMP_RAW_MODULES" | \
+    sed -E 's/.*include::modules\/([^[]+)\[.*$/\1/' "$TMP_RAW_MODULES" | \
     sed -E 's/.*include::modules\/(.*)/\1/' | \
     sort | uniq | sed '/^$/d' | while read -r module_name; do
         full_path="$(realpath "$(dirname "$TARGET_FILEPATH")/../modules/$module_name" 2>/dev/null)"
