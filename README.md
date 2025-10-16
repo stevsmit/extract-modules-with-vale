@@ -92,7 +92,7 @@ cat /../../extract-modules-with-vale/etcd_extracted_modules/etcd-encrypt.adoc_MO
 • <assembly_name>.adoc
   - '/home/path/to/openshift-docs/modules/<module_name>.adoc'
   - '/home/home/path/to/openshift-docs/modules/<module_name>.adoc'
-  - '/home/home/path/to/penshift-docs/modules/<module_name>.adoc'
+  - '/home/home/path/to/openshift-docs/modules/<module_name>.adoc'
   - '/home/home/path/to/openshift-docs/modules/<module_name>.adoc'
 ```
 
