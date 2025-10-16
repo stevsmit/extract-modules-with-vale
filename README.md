@@ -76,8 +76,15 @@ Created: /../../extract-modules-with-vale/etcd_extracted_modules/etcd-encrypt.ad
 ```
  1. This file path is used in the following step.
 
-6. Return the list of assemblies and modules by using the `cat` command:
+6. Return, or open, the list of assemblies and modules by using the `cat` command:
 ```bash
+# On Linux, you can use the `xdg-open` command to open the folder and then the `_MODULES.txt` file in your text editor:
+xdg-open .
+
+# On Mac, you can use the `open` command to open the folder and then the `_MODULES.txt` file in your text editor:
+open .
+
+# Alternatively, you can use the `cat` command to return the list of files in the terminal:
 cat /../../extract-modules-with-vale/etcd_extracted_modules/etcd-encrypt.adoc_MODULES.txt
  ```
 **Output:**
