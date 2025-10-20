@@ -135,11 +135,11 @@ cd extract-modules-with-vale
 2. Create an alias that will be used to run the AsciiDocDITA tool against your content. Be sure to replace /path/to/ the actual path to your vale.ini file. You don’t have to use echo here – you can use an IDE, too.
 ```bash
 # On Linux, add the alias to your ~/.bashrc file:
-$ echo "alias ditavaleocp='vale --config=/path/to/asciidoctor-dita-vale-directory/vale.ini'" >> ~/.bashrc
+$ echo "alias ditavaleocp='vale --config=/path/to/extract-modules-with-vale/vale.ini'" >> ~/.bashrc
 
 # On Mac, add the alias to the last line on the ~/.zshrc file:
 $ echo "alias ditavaleocp='vale 
---config=/path/to/asciidoctor-dita-vale-directory/vale.ini'" >> ~/.zshrc
+--config=/path/to/extract-modules-with-vale/vale.ini'" >> ~/.zshrc
 ```
 
 3. Reload your configuration by entering the following command:
